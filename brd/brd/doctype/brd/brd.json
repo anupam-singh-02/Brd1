@@ -1,0 +1,90 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-01-20 16:35:17.098379",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "bpp_id",
+  "nda_document",
+  "edit_document",
+  "created_by",
+  "bid_manager",
+  "tab_break_xcjk",
+  "revisions_section",
+  "nda_revisions"
+ ],
+ "fields": [
+  {
+   "fieldname": "bpp_id",
+   "fieldtype": "Data",
+   "label": "Bpp Id"
+  },
+  {
+   "fieldname": "nda_document",
+   "fieldtype": "Attach",
+   "label": "NDA Document"
+  },
+  {
+   "fieldname": "edit_document",
+   "fieldtype": "Button",
+   "label": "Edit Document"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Created By",
+   "options": "User"
+  },
+  {
+   "default": "tejas@gmail.com",
+   "fieldname": "bid_manager",
+   "fieldtype": "Link",
+   "label": "Bid Manager",
+   "options": "User"
+  },
+  {
+   "fieldname": "tab_break_xcjk",
+   "fieldtype": "Tab Break",
+   "label": "Revisions"
+  },
+  {
+   "fieldname": "revisions_section",
+   "fieldtype": "Section Break",
+   "label": "Revisions"
+  },
+  {
+   "fieldname": "nda_revisions",
+   "fieldtype": "Table",
+   "label": "NDA Revisions",
+   "options": "Document Revision Archives"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-21 11:45:41.369289",
+ "modified_by": "Administrator",
+ "module": "Brd",
+ "name": "BRD",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

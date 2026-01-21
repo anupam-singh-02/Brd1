@@ -1,0 +1,85 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-01-21 10:40:39.052869",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "user_full_name",
+  "user_email",
+  "state",
+  "nda_archive",
+  "change_status",
+  "compare_legal_doc",
+  "original_nda",
+  "created_by",
+  "department"
+ ],
+ "fields": [
+  {
+   "fieldname": "user_full_name",
+   "fieldtype": "Data",
+   "label": "User Full Name"
+  },
+  {
+   "fieldname": "user_email",
+   "fieldtype": "Data",
+   "label": "User Email"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "change_status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Change Status"
+  },
+  {
+   "fieldname": "compare_legal_doc",
+   "fieldtype": "Button",
+   "in_list_view": 1,
+   "label": "Compare"
+  },
+  {
+   "fieldname": "nda_archive",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Revised Document"
+  },
+  {
+   "fieldname": "created_by",
+   "fieldtype": "Link",
+   "label": "Reviewed by",
+   "options": "User"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fieldname": "original_nda",
+   "fieldtype": "Attach",
+   "label": "Original Document"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-01-21 11:43:57.691362",
+ "modified_by": "Administrator",
+ "module": "Brd",
+ "name": "Document Revision Archives",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

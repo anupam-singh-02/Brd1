@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:bpp_id",
  "creation": "2026-01-20 16:35:17.098379",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -10,6 +11,7 @@
   "edit_document",
   "created_by",
   "bid_manager",
+  "brd_status",
   "tab_break_xcjk",
   "revisions_section",
   "nda_revisions"
@@ -18,30 +20,35 @@
   {
    "fieldname": "bpp_id",
    "fieldtype": "Data",
-   "label": "Bpp Id"
+   "label": "Bpp Id",
+   "unique": 1
   },
   {
+   "default": "127.0.0.1:8003/files/KYC_Bagic_Proposal_V22ba0aa1.docx",
    "fieldname": "nda_document",
    "fieldtype": "Attach",
-   "label": "NDA Document"
+   "label": "BRD Document",
+   "make_attachment_public": 1
   },
   {
    "fieldname": "edit_document",
    "fieldtype": "Button",
-   "label": "Edit Document"
+   "label": "Edit BRD"
   },
   {
    "fieldname": "created_by",
    "fieldtype": "Link",
    "label": "Created By",
-   "options": "User"
+   "options": "User",
+   "read_only": 1
   },
   {
    "default": "tejas@gmail.com",
    "fieldname": "bid_manager",
    "fieldtype": "Link",
    "label": "Bid Manager",
-   "options": "User"
+   "options": "User",
+   "read_only": 1
   },
   {
    "fieldname": "tab_break_xcjk",
@@ -58,15 +65,22 @@
    "fieldtype": "Table",
    "label": "NDA Revisions",
    "options": "Document Revision Archives"
+  },
+  {
+   "fieldname": "brd_status",
+   "fieldtype": "Select",
+   "label": "Brd Status",
+   "options": "Draft\nUnder Review\nApproved\nRevision Needed\nClient Sent"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-21 11:45:41.369289",
- "modified_by": "Administrator",
+ "modified": "2026-01-21 17:55:27.217625",
+ "modified_by": "anupam.singh@cloverinfotech.com",
  "module": "Brd",
  "name": "BRD",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

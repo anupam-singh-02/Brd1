@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Document: {{ document.name }}</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    #editor {
+      height: 100%;
+      width: 100%;
+    }
+
+    body > div#editor {
+      display: block;
+    }
+  </style>
+
+  <!-- ONLYOFFICE API -->
+  <script src="{{ onlyoffice_api_js_url }}"></script>
+</head>
+
+<body>
+  <div id="editor"></div>
+
+  <script>
+    var config = {{ onlyoffice_config | safe }};
+
+    /* -------------------------------------------------
+       Inject CSS after iframe is fully available
+    --------------------------------------------------*/
+    function injectOnlyOfficeCSS() {
+      let iframe = document.querySelector("#editor iframe");
+
+      if (!iframe) {
+        console.log("ONLYOFFICE iframe not ready, retrying...");
+        setTimeout(injectOnlyOfficeCSS, 300);
+        return;
+      }
+
+      let iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+      if (!iframeDoc || !iframeDoc.head) {
+        console.log("ONLYOFFICE iframe document not ready, retrying...");
+        setTimeout(injectOnlyOfficeCSS, 300);
+        return;
+      }
+
+      let style = iframeDoc.createElement("style");
+      style.innerHTML = `
+        .nav-item[data-tab="layout"],
+        .nav-item[data-tab="references"],
+        .nav-item[data-tab="collaboration"],
+        .nav-item[data-tab="protection"],
+        .nav-item[data-tab="plugins"],
+        .nav-item[data-tab="ai"] {
+          display: none !important;
+        }
+      `;
+
+      iframeDoc.head.appendChild(style);
+      console.log("ONLYOFFICE CSS injected successfully");
+    }
+
+    /* -------------------------------------------------
+       Attach ONLYOFFICE events correctly
+    --------------------------------------------------*/
+    config.events = config.events || {};
+    config.events.onDocumentReady = function () {
+      console.log("ONLYOFFICE document ready");
+      injectOnlyOfficeCSS();
+    };
+
+    console.log("ONLYOFFICE final config:", config);
+
+    /* -------------------------------------------------
+       Create editor instance
+    --------------------------------------------------*/
+    var docEditor = new DocsAPI.DocEditor("editor", config);
+  </script>
+</body>
+</html>
